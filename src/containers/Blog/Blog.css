@@ -1,0 +1,31 @@
+.Posts {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+   
+}
+
+h1{
+
+    text-align: center;
+    color: crimson;
+}
+
+table{
+    margin-left: 10%;
+}
+
+#cuadrogris{
+
+    margin-right: 30%;
+
+}
+#tienda{
+    margin-bottom: 3%;
+
+}
+.card{
+    width: 40%;
+}
