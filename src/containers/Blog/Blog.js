@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import axios from 'axios';
 import axios from '../../axios';
-
+import { Route, NavLink, Switch } from 'react-router-dom';
 import Post from '../../components/Post/Post';
 import FullPost from '../../components/FullPost/FullPost';
 import NewPost from '../../components/NewPost/NewPost';
@@ -19,7 +19,7 @@ class Blog extends Component {
       
         axios.get( '/Productos.json' )
             .then( response => {
-                console.log( response.error );
+              //  console.log( response.error );
                 let posts = [];
                
                 for (let key in response.data) {
@@ -35,7 +35,7 @@ class Blog extends Component {
                 
              
                 this.setState({posts: posts});
-                console.log(posts);
+               // console.log(posts);
                 
             } )
             .catch(error => {
@@ -102,7 +102,7 @@ class Blog extends Component {
     total = product.Unidades*precionumero;
     product.totalProducto=total;
 
-    console.log("El total del producto es: "+total);
+    //console.log("El total del producto es: "+total);
 
     //--------------------------------------------
 
@@ -142,8 +142,9 @@ class Blog extends Component {
            
             return {totalProducto: a.totalProducto + b.totalProducto}; // returns object with property x
           },{totalProducto:0})
-          console.log(totalCompra.totalProducto);
-          let strTotalCompra = ""+totalCompra.totalProducto+"€"
+         //console.log(totalCompra.totalProducto);
+          let strTotalCompra = ""+totalCompra.totalProducto+"€";
+         
         return (
             <div>
                  <div className="row" >
@@ -188,7 +189,21 @@ class Blog extends Component {
                             </ul>
                         </div>
                         {/* ------------------------------------------------------------------------------ */}
-                        <a className="btn btn-primary btn-lg" href="#" role="button">Realizar pedido</a>
+                        {/* <a className="btn btn-primary btn-lg" href="#" role="button">Realizar pedido</a> */}
+                        <li><NavLink
+                                className="btn btn-primary btn-lg"
+                                to={{
+                                    pathname: "/detallePedido",
+                                    state: { prods: [this.state.posts],
+                                            final: strTotalCompra
+                                    }
+                                }}
+                                exact
+                                activeClassName="my-active"
+                                activeStyle={{
+                                    color: '#fa923f', 
+                                }}>Realizar Pedido</NavLink></li>
+                   
                     </div>
                     </div>
                     {/* --------------------------------- */}
