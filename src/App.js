@@ -10,9 +10,9 @@ class App extends Component {
     return (
       <BrowserRouter basename="/my-app">
       <div className="App">
-      <header>
+      {/* <header>
                  
-          </header>
+          </header> */}
           <Switch>{/*se toma solo la primera ruta que concuerda con el path */}
                     {/* <Route path="/" exact component={Blog} />  */}
                     <Route path="/posts" exact component={Blog} />

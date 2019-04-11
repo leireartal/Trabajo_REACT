@@ -117,6 +117,8 @@ class Blog extends Component {
     //  }
 
     render () {
+
+       
         let posts = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
        // console.log("Hola"+this.state.posts);
         if (!this.state.error) {
@@ -146,6 +148,7 @@ class Blog extends Component {
           let strTotalCompra = ""+totalCompra.totalProducto+"€";
          
         return (
+            <div class="container">
             <div>
                  <div className="row" >
                     <div class="col-sm-12">
@@ -173,14 +176,19 @@ class Blog extends Component {
                     </div>
                 
                 {/* ------------------------TABLA-------------------- */}
+                
                     <div className="col-sm-6">
                         <div id="cuadrogris" className="jumbotron">
                         <h1 className="display-4">CARRITO</h1>
-                        <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                        {/* <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> */}
                         <hr className="my-4"></hr>
-                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                        {/* <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> */}
                         {/* --------------Boton precio---------------------------------------------------- */}
-                        <div className="card" >
+                        <div class="row no-gutters">
+                        
+                        <div class="col-md-12">
+                        <div className="card border-dark mb-3" >
+                       
                             <div id="botonTotalPedido" className="card-header">
                                 Total del pedido
                             </div>
@@ -188,10 +196,19 @@ class Blog extends Component {
                                 <li className="list-group-item">{strTotalCompra} </li>
                             </ul>
                         </div>
+                        </div>
+                        {/* <div id="carritopequeño" class="col-md-3" style={Imgstyle}>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/trabajofinal-20967.appspot.com/o/carrito.jpg?alt=media&token=1827eb89-12a1-4727-b290-9372df999bea"  ></img>
+                       </div> */}
+                        </div>
+                        
+                      
                         {/* ------------------------------------------------------------------------------ */}
+                   
+
                         {/* <a className="btn btn-primary btn-lg" href="#" role="button">Realizar pedido</a> */}
-                        <li><NavLink
-                                className="btn btn-primary btn-lg"
+                       <NavLink
+                                className="btn btn-danger"
                                 to={{
                                     pathname: "/detallePedido",
                                     state: { prods: [this.state.posts],
@@ -199,13 +216,16 @@ class Blog extends Component {
                                     }
                                 }}
                                 exact
-                                activeClassName="my-active"
+                                activeClassName="btn btn-danger"
                                 activeStyle={{
-                                    color: '#fa923f', 
-                                }}>Realizar Pedido</NavLink></li>
+                                    // color: '#fa923f', 
+                                }}>Realizar Pedido</NavLink>
+                   
                    
                     </div>
+                    
                     </div>
+                   
                     {/* --------------------------------- */}
                 </div>
            
@@ -219,6 +239,7 @@ class Blog extends Component {
                 <section>
                     <NewPost />
                 </section> */}
+            </div>
             </div>
         );
     }

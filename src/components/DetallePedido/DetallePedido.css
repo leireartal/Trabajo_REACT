@@ -1,3 +1,29 @@
+
+
+#carrito{
+    width: 82%;
+    padding: 10%;
+    margin-bottom: 5%;
+}
+#ticket{
+   margin-right: 20%;
+    padding: 10%;
+    
+}
+
+.card{
+
+    margin-top: 3%;
+}
+
+#botonTotalPedido2{
+
+    background-color: rgb(182, 18, 18);
+    color: rgb(233, 236, 239);
+    cursor: inherit ;
+    
+    
+}
 /* .FullPost {
     width: 80%;
     margin: 20px auto;
@@ -5,6 +31,7 @@
     box-shadow: 0 2px 3px #ccc;
     text-align: center;
 }
+
 
 .Edit {
 

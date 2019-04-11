@@ -33,14 +33,14 @@ class DetallePedido extends Component {
         <div className="row" >
             <div id="cuadroDetalleDelPedido" className="jumbotron">
                  <h1 className="display-4">CARRITO</h1>
-                 <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                 <p className="lead">¡Gracias por usar nuestros servicios! A continuación se muestra el detalle de su pedido. Compruebe que los datos son correctos</p>
                   <hr className="my-4"></hr>
-                 <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                 {/* <p>A continuación se muestra el detalle de su pedido. Compruebe que los datos son correctos</p> */}
         {/* --------------Boton precio---------------------------------------------------- */}
         <div className="row">
         <div className="col-sm-6">
         <div class="table-responsive">
-            <table class="table">
+            <table id="ticket" class="table">
             <thead>
                     <tr>
                     <th scope="col">Nombre del Producto</th>
@@ -82,13 +82,13 @@ class DetallePedido extends Component {
        
     </div>
     <div className="col-sm-6">
-    <img src="https://firebasestorage.googleapis.com/v0/b/trabajofinal-20967.appspot.com/o/carrito.jpg?alt=media&token=1827eb89-12a1-4727-b290-9372df999bea"  className="media-object" alt="Responsive image" ></img>
+    <img id="carrito" src="https://firebasestorage.googleapis.com/v0/b/trabajofinal-20967.appspot.com/o/carrito%204.png?alt=media&token=931bc09d-5b61-4b90-8d9c-5ea6ae17707a" ></img>
     </div>
     </div>   
     <div className="row">
         <div className="col-sm-6">
             <div className="card" >
-                <div id="botonTotalPedido2" className="card-header">
+                <div id="botonTotalPedido2" type="button" className="card-header">
                 Total del pedido
                 </div>
                 <ul className="list-group list-group-flush">
@@ -102,28 +102,38 @@ class DetallePedido extends Component {
     </div>
 <div className="row" >
    
-    <nav>
-        <ul>
-             <li><NavLink
+    <nav className='navbar navbar-dark bg-dark'>
+
+             <NavLink 
+                    // className="btn btn-secondary"
                     to="/posts/"
                     exact
                     activeClassName="my-active"
+                    alignm="left"
                     activeStyle={{
-                        color: '#fa923f',
-                        textDecoration: 'underline'
+                       backgroundColor:'rgb(182, 18, 18)',
+                       textAlign:'left',
+                       alignm:'left'
+
                     }}>Volver a la tienda</NavLink>
-            </li>
-            <li><NavLink
+        </nav>
+    </div>
+    <div className="row" >
+        <nav className='navbar navbar-dark bg-dark'>
+            
+           <NavLink
+                    // className="btn btn-secondary"
+                    alignm="right"
                     to="/AceptarPedido/"
                     exact
                     activeClassName="my-active"
                     activeStyle={{
                         color: '#fa923f',
+                        
                     }}>Continuar</NavLink>
-            </li>
-
-    </ul>
+           
     </nav>
+    
 </div>
 </div>
         );
