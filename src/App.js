@@ -5,6 +5,7 @@ import { Route, NavLink, Switch,Redirect } from 'react-router-dom';
 import NewPost from './components/NewPost/NewPost';
 import FullPost from './components/FullPost/FullPost';
 import DetallePedido from './components/DetallePedido/DetallePedido';
+import Formulario from './components/Formulario/Formulario';
 class App extends Component {
   render() {
     return (
@@ -17,7 +18,10 @@ class App extends Component {
                     {/* <Route path="/" exact component={Blog} />  */}
                     <Route path="/posts" exact component={Blog} />
                     <Route path="/detallePedido" component={DetallePedido} /> 
+                    <Route path="/Formulario" exact component={Formulario} />
                     <Redirect from="/" to="/posts" />
+                    {/* <Redirect from="/Formulario?" to="/Formulario" /> */}
+                    
           </Switch>
         
         {/* <Blog /> */}

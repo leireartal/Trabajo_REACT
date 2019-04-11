@@ -124,7 +124,7 @@ class DetallePedido extends Component {
            <NavLink
                     // className="btn btn-secondary"
                     alignm="right"
-                    to="/AceptarPedido/"
+                    to="/Formulario"
                     exact
                     activeClassName="my-active"
                     activeStyle={{
