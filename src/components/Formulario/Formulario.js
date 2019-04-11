@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { Route, NavLink, Switch } from 'react-router-dom';
 import './bootstrap.min.css';
 import './Formulario.css';
+import axios from '../../axios';
 
 class Formulario extends Component {
     state = {
@@ -30,7 +31,8 @@ class Formulario extends Component {
     // }
 
     dataHandler = () => {
-        
+        var date = new Date(). getDate();
+        this.setState({fecha:  date});
         const data = {
             apellido: this.state.apellido,
             ciudad: this.state.ciudad,
@@ -40,23 +42,22 @@ class Formulario extends Component {
             nombre:this.state.nombre,
             email:this.state.email
         };
-        alert(data.apellido);
+        // alert(data.apellido);
         axios.post('/Pedidos.json', data)
             .then(response => {
-                alert('Saved order');
-                console.log(this.state.apellido);
-                console.log(response);
-                alert(response);
+                // alert('Saved order');
+                // console.log(this.state.apellido);
+               
             }).catch(error => {
                  console.log(error);
                 // this.setState({error: true});
                 alert('Error order');
             });
-            
+          
     }
 
     render () {
-       
+        
     return (
 
     <div className="Formulario" >
