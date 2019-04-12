@@ -47,8 +47,6 @@ class Agradecimiento extends Component {
                         <NavLink 
                             className="btn btn-outline-success"
                              to="/posts"
-                           
-                            
                         >Realizar un nuevo pedido
                         </NavLink>
                     </div>

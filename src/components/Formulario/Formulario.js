@@ -159,7 +159,8 @@ class Formulario extends Component {
                     activeClassName="my-active"
                    // alignm="left"
                    onClick={()=>this.dataHandler(this.props.location)}
-                  >Enviar</NavLink>
+                  >Enviar
+  </NavLink>
 
 </form>
 
