@@ -150,8 +150,17 @@ class Formulario extends Component {
   <div class="form-group">
 
   </div>
-  {/* <button onClick={this.dataHandler(this.props.location)} class="btn btn-danger" >Enviar</button> */}
-  <button onClick={()=>this.dataHandler(this.props.location)} class="btn btn-danger" >Enviar</button>
+ 
+  {/* <button onClick={()=>this.dataHandler(this.props.location)} class="btn btn-danger" >Enviar</button> */}
+  <NavLink 
+                     className="btn btn-danger"
+                    to="/agradecimiento"
+                    exact
+                    activeClassName="my-active"
+                   // alignm="left"
+                   onClick={()=>this.dataHandler(this.props.location)}
+                  >Enviar</NavLink>
+
 </form>
 
 </div>

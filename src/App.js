@@ -19,6 +19,7 @@ class App extends Component {
                     <Route path="/posts" exact component={Blog} />
                     <Route path="/detallePedido" component={DetallePedido} /> 
                     <Route path="/Formulario" exact component={Formulario} />
+                    <Route path="/agradecimiento" exact component={Blog} />
                     <Redirect from="/" to="/posts" />
                     {/* <Redirect from="/Formulario?" to="/Formulario" /> */}
                     
