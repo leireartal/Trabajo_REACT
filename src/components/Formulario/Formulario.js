@@ -12,8 +12,11 @@ class Formulario extends Component {
         codigopostal:0,
         calle:'',
         fecha:'',
+        hora:'',
         nombre:'',
         email:'',
+        // totalunidades:0,
+        // preciototal:'',
     }
 
     // componentWillUpdate () {
@@ -31,13 +34,28 @@ class Formulario extends Component {
     // }
 
     dataHandler = () => {
-        var date = new Date(). getDate();
-        this.setState({fecha:  date});
+      //--------------------------getting date--------------------------------------------------
+      var date = new Date().getDate(); //Current Date
+      var month = new Date().getMonth() + 1; //Current Month
+      var year = new Date().getFullYear(); //Current Year
+      var hours = new Date().getHours(); //Current Hours
+      var min = new Date().getMinutes(); //Current Minutes
+      var sec = new Date().getSeconds(); //Current Seconds
+      const fecha = date+"/"+month+"/"+year;
+      const hora = hours+":"+min+":"+sec;
+      //--------------------------------------------------------------------------------------------
+
+
+
+        // var date = new Date(). getDate();
+        this.setState({fecha:  fecha});
+        this.setState({hora:hora});
         const data = {
             apellido: this.state.apellido,
             ciudad: this.state.ciudad,
             codigopostal: this.state.codigopostal,
             calle:this.state.calle,
+            fecha:this.state.fecha,
             fecha:this.state.fecha,
             nombre:this.state.nombre,
             email:this.state.email
