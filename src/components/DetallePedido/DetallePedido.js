@@ -5,29 +5,43 @@ import { Route, NavLink, Switch } from 'react-router-dom';
 import './DetallePedido.css';
 
 class DetallePedido extends Component {
-    state = {
-        posts: [],
-        totalPedido: 0
+    // state = {
+    //     lista: [],
+    //     totalPedido: ""
+    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            lista: [],
+            totalPedido: "",
+            value:{}
+        };
     }
-
     componentWillUpdate () {
         
-        //this.loadData();
+        
     }
 
+    // componentWillReceiveProps() {
+    //     var index =Object.keys(this.props.location.state.prods)[0];
+    //     this.setState({totalPedido:'jjjj'});
+    //     this.setState({lista:this.props.location.state.prods[index]});
+
+       
+     
+    //   console.log("He pasado de un lado a otro: "+this.props.location.state.prods[index]);
+    //   console.log("totalpedido: "+this.state.totalPedido);
+    // }
     componentWillReceiveProps() {
-       // this.loadData();
-       this.setState({totalPedido:this.props.location.state.final});
-       this.setState({posts:this.props.location.state.prods[0]});
-      //console.log("hola"+this.props.location.state.prods[0][0].Unidades);
-      console.log("He pasado de un lado a otro: "+this.state.posts[0][0].Unidades);
-      console.log("totalproducto: "+this.state.totalPedido);
-    }
+
+      }
 
  
 
     render () {
-       
+    var index =Object.keys(this.props.location.state.prods)[0];
+    const arrayprods = this.props.location.state.prods[index];
+    const totalprice = this.props.location.state.final;
     return (
     <div className="DetallePedido" >
         <div className="row" >
@@ -124,7 +138,12 @@ class DetallePedido extends Component {
            <NavLink
                     // className="btn btn-secondary"
                     alignm="right"
-                    to="/Formulario"
+                    to={{
+                        pathname: "/Formulario",
+                        state: { lista: arrayprods,
+                                gastototal: totalprice
+                        }
+                    }}
                     exact
                     activeClassName="my-active"
                     activeStyle={{

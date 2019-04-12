@@ -15,8 +15,8 @@ class Formulario extends Component {
         hora:'',
         nombre:'',
         email:'',
-        // totalunidades:0,
-        // preciototal:'',
+       // totalunidades:0
+       // preciototal:'',
     }
 
     // componentWillUpdate () {
@@ -24,14 +24,13 @@ class Formulario extends Component {
 
     // }
 
-    // componentWillReceiveProps() {
+    componentWillReceiveProps() {
        
-    //    this.setState({totalPedido:this.props.location.state.final});
-    //    this.setState({posts:this.props.location.state.prods[0]});
       
-    //   console.log("He pasado de un lado a otro: "+this.state.posts[0][0].Unidades);
-    //   console.log("totalproducto: "+this.state.totalPedido);
-    // }
+     
+      
+     
+    }
 
     dataHandler = () => {
       //--------------------------getting date--------------------------------------------------
@@ -50,6 +49,7 @@ class Formulario extends Component {
         // var date = new Date(). getDate();
         this.setState({fecha:  fecha});
         this.setState({hora:hora});
+       
         const data = {
             apellido: this.state.apellido,
             ciudad: this.state.ciudad,
@@ -59,6 +59,8 @@ class Formulario extends Component {
             fecha:this.state.fecha,
             nombre:this.state.nombre,
             email:this.state.email
+            // totalunidades:this.state.totalunidades,
+            // preciototal:this.state.preciototal
         };
         // alert(data.apellido);
         axios.post('/Pedidos.json', data)
@@ -75,7 +77,10 @@ class Formulario extends Component {
     }
 
     render () {
-        
+      // this.setState({preciototal:this.props.location.state.gastototal});
+      console.log(this.state.preciototal);
+        console.log(this.props.location.state.lista);
+        console.log(this.props.location.state.gastototal);
     return (
 
     <div className="Formulario" >
