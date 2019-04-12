@@ -6,6 +6,7 @@ import NewPost from './components/NewPost/NewPost';
 import FullPost from './components/FullPost/FullPost';
 import DetallePedido from './components/DetallePedido/DetallePedido';
 import Formulario from './components/Formulario/Formulario';
+import Agradecimiento from './components/Agradecimiento/Agradecimiento';
 class App extends Component {
   render() {
     return (
@@ -19,7 +20,7 @@ class App extends Component {
                     <Route path="/posts" exact component={Blog} />
                     <Route path="/detallePedido" component={DetallePedido} /> 
                     <Route path="/Formulario" exact component={Formulario} />
-                    <Route path="/agradecimiento" exact component={Blog} />
+                    <Route path="/agradecimiento" exact component={Agradecimiento} />
                     <Redirect from="/" to="/posts" />
                     {/* <Redirect from="/Formulario?" to="/Formulario" /> */}
                     
