@@ -15,6 +15,10 @@ class Formulario extends Component {
         hora:'',
         nombre:'',
         email:'',
+        tick:{
+          compra:null,
+          importe:null
+        }
        // totalunidades:0
        // preciototal:'',
     }
@@ -25,14 +29,14 @@ class Formulario extends Component {
     // }
 
     componentWillReceiveProps() {
-       
+      
       
      
       
      
     }
 
-    dataHandler = () => {
+    dataHandler = (properties) => {
       //--------------------------getting date--------------------------------------------------
       var date = new Date().getDate(); //Current Date
       var month = new Date().getMonth() + 1; //Current Month
@@ -47,21 +51,29 @@ class Formulario extends Component {
 
 
         // var date = new Date(). getDate();
-        this.setState({fecha:  fecha});
-        this.setState({hora:hora});
+         this.setState({fecha:  fecha});
+         this.setState({hora:hora});
+         
+       
        
         const data = {
             apellido: this.state.apellido,
             ciudad: this.state.ciudad,
             codigopostal: this.state.codigopostal,
             calle:this.state.calle,
-            fecha:this.state.fecha,
-            fecha:this.state.fecha,
+            fecha:fecha,
+            hora:hora,
             nombre:this.state.nombre,
-            email:this.state.email
+            email:this.state.email,
+            tick:{
+              compra:properties.state.lista,
+              importe:properties.state.gastototal
+            }
+             
             // totalunidades:this.state.totalunidades,
             // preciototal:this.state.preciototal
         };
+        // this.setState({tick:data.tick});
         // alert(data.apellido);
         axios.post('/Pedidos.json', data)
             .then(response => {
@@ -77,10 +89,10 @@ class Formulario extends Component {
     }
 
     render () {
-      // this.setState({preciototal:this.props.location.state.gastototal});
-      console.log(this.state.preciototal);
-        console.log(this.props.location.state.lista);
-        console.log(this.props.location.state.gastototal);
+     
+      // console.log(this.state.preciototal);
+      // console.log(this.props.location.state.lista);
+      // console.log(this.props.location.state.gastototal);
     return (
 
     <div className="Formulario" >
@@ -138,7 +150,8 @@ class Formulario extends Component {
   <div class="form-group">
 
   </div>
-  <button onClick={this.dataHandler} class="btn btn-danger" >Enviar</button>
+  {/* <button onClick={this.dataHandler(this.props.location)} class="btn btn-danger" >Enviar</button> */}
+  <button onClick={()=>this.dataHandler(this.props.location)} class="btn btn-danger" >Enviar</button>
 </form>
 
 </div>
