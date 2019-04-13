@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+//import axios from 'axios';
 import axios from '../../axios';
-
 import './FullPost.css';
 
 class FullPost extends Component {
@@ -9,54 +8,50 @@ class FullPost extends Component {
         loadedPost: null
     }
 
+    componentDidMount () {
+        console.log(this.props);
+        this.loadData();
+    }
+
     componentDidUpdate() {
-        if (this.props.id) {
-            if (!this.state.loadedPost || this.state.loadedPost.idb !== this.props.id) {
-                //axios.get('/posts.json?orderBy="id"&equalTo="' + this.props.id + '"')
-                axios.get('/entradas.json?orderBy="$key"&equalTo="' + this.props.id + '"')
-                    .then(response => {
-                        //console.log(response);
-                        const posts = [];
-                        for (let key in response.data) {
-                            posts.push({
-                                ...response.data[key],
-                                idb: key
-                            });
-                        }
-                        console.log(posts);
-                        this.setState({ loadedPost: posts[0] });
-                    });
+        this.loadData();
+    }
+    shouldComponentUpdate(){
+        console.log(this.props.match.params.id );
+    }
+
+    loadData () {
+        if ( this.props.match.params.id ) {
+            if ( !this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id) ) {
+                axios.get( '/Pedidos/' + this.props.match.params.id )
+                    .then( response => {
+                        // console.log(response);
+                        this.setState( { loadedPost: response.data } );
+                    } );
             }
         }
     }
 
-    deleteUpdatePostHandler = () => {
-        axios.delete('/entradas/' + this.props.id + '.json')
-            .then(response => {
-                console.log(response);
-            });
-        // axios.put('/posts/' + this.props.id + '.json', {
-        //     ...this.state.loadedPost,
-        //     author: "new author added " + new Date()
-        // })
-        //     .then(response => {
-        //         console.log(response);
-        //     });
-    }
+    // deletePostHandler = () => {
+    //     axios.delete('/posts/' + this.props.match.params.id)
+    //         .then(response => {
+    //             console.log(response);
+    //         });
+    // }
 
-    render() {
+    render () {
         let post = <p style={{ textAlign: 'center' }}>Please select a Post!</p>;
-        if (this.props.id) {
+        if ( this.props.match.params.id ) {
             post = <p style={{ textAlign: 'center' }}>Loading...!</p>;
         }
-        if (this.state.loadedPost) {
+        if ( this.state.loadedPost ) {
             post = (
                 <div className="FullPost">
                     <h1>{this.state.loadedPost.title}</h1>
                     <p>{this.state.loadedPost.body}</p>
-                    <div className="Edit">
-                        <button onClick={this.deleteUpdatePostHandler} className="Delete">Delete or Update</button>
-                    </div>
+                    {/* <div className="Edit">
+                        <button onClick={this.deletePostHandler} className="Delete">Delete</button>
+                    </div> */}
                 </div>
 
             );

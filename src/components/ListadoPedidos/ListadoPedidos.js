@@ -1,9 +1,9 @@
 import React, { Component} from 'react';
-import { Route, NavLink} from 'react-router-dom';
+import { Route, NavLink,Redirect} from 'react-router-dom';
 import './bootstrap.min.css';
 //import axios from 'axios';
 import axios from '../../axios';
-
+import FullPost from '../../components/FullPost/FullPost';
 import './ListadoPedidos.css';
 import Pedido from './Pedido/Pedido.js';
 
@@ -43,11 +43,13 @@ class ListadoPedidos extends Component {
     }
     expand = (id) => {
       
-        let info = <div id="infoadicional" >Hola</div>;
+       // let info = <div id="infoadicional" >Hola</div>;
         console.log("me estoy ejecutando");
-        return(
-            {info}
-        );
+        //console.log(this.props.history);
+       
+        this.props.history.push( '/verlistadopedidos/' + id );
+       
+       
 
     //--------------------------------------------
 
@@ -56,7 +58,8 @@ class ListadoPedidos extends Component {
      }
 
     render () {
-        
+        let urlstr = this.props.match.url + '/:id';
+        console.log( urlstr);
           {/* -----------------------------------Listado--------------------------------------*/}
         let pedidos = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
         if (!this.state.error) {
@@ -84,6 +87,7 @@ class ListadoPedidos extends Component {
            {pedidos}
         <div className="container">
        
+        <Route path={this.props.match.url + '/:id'} exact component={FullPost} />
 
            {/* -----------------------------------Listado--------------------------------------*/}
         </div>

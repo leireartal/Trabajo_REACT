@@ -47,14 +47,14 @@ class Pedido extends Component {
            
         <div className="container">
           {/* -----------------------------------Listado--------------------------------------*/}
-          <a href="#" class="list-group-item list-group-item-action ">
+          <div  class="list-group-item list-group-item-action ">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{this.props.idb} </h5>
                     <small>{this.props.fecha} {this.props.hora}</small>
                  </div>
                 <p class="mb-1">CLIENTE: {this.props.nombre} {this.props.apellido}</p>
                 <small>Total: {this.props.tick.importe}</small>
-                </a>
+                </div>
            {/* -----------------------------------Listado--------------------------------------*/}
         </div>
             </div>
