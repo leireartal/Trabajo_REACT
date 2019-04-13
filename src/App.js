@@ -22,9 +22,9 @@ class App extends Component {
                     <Route path="/detallePedido" component={DetallePedido} /> 
                     <Route path="/Formulario" exact component={Formulario} />
                     <Route path="/agradecimiento" exact component={Agradecimiento} />
-                    <Route path="/verlistadopedidos" exact component={ListadoPedidos} />
+                    <Route path="/verlistadopedidos"  component={ListadoPedidos} />
                     <Route path="/verlistadopedidos/"  component={FullPost} />
-                    <Redirect from="/" to="/posts" />
+                    {/* <Redirect from="/" to="/posts" /> */}
                   
                     
           </Switch>

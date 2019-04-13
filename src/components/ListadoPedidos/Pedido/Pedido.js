@@ -47,6 +47,7 @@ class Pedido extends Component {
            
         <div className="container">
           {/* -----------------------------------Listado--------------------------------------*/}
+       
           <div  class="list-group-item list-group-item-action ">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{this.props.idb} </h5>
@@ -54,7 +55,7 @@ class Pedido extends Component {
                  </div>
                 <p class="mb-1">CLIENTE: {this.props.nombre} {this.props.apellido}</p>
                 <small>Total: {this.props.tick.importe}</small>
-                </div>
+        </div>
            {/* -----------------------------------Listado--------------------------------------*/}
         </div>
             </div>

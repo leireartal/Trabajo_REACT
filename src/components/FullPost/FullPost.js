@@ -43,12 +43,14 @@ class FullPost extends Component {
         let post = <p style={{ textAlign: 'center' }}>Please select a Post!</p>;
         if ( this.props.match.params.id ) {
             post = <p style={{ textAlign: 'center' }}>Loading...!</p>;
+            <p>{this.props.match.params.id}</p>;
         }
         if ( this.state.loadedPost ) {
             post = (
                 <div className="FullPost">
-                    <h1>{this.state.loadedPost.title}</h1>
-                    <p>{this.state.loadedPost.body}</p>
+                    {/* <h1>{this.state.loadedPost.title}</h1>
+                    <p>{this.state.loadedPost.body}</p> */}
+                    <p>{this.props.match.params.id}</p>
                     {/* <div className="Edit">
                         <button onClick={this.deletePostHandler} className="Delete">Delete</button>
                     </div> */}
