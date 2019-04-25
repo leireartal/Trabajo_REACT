@@ -1,15 +1,21 @@
 .FullPost {
     width: 80%;
     margin: 20px auto;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
+    /* border: 1px solid #eee; */
+    box-shadow: 0 2px 3px #741414;
     text-align: center;
 }
+#cuadroazul{
+    background-color:rgb(208, 239, 250) ;
+}
+#cuadrorosa{
 
-.Edit {
-
+    background-color:rgb(250, 208, 222) ;
 }
 
+.table{
+    width: 80%;
+}
 .Edit label {
     display: block;
     color: grey;
@@ -25,7 +31,7 @@
 
 .Edit button:hover,
 .Edit button:active {
-    color: #521751;
+    color: #521717;
 }
 
 .Edit button.Delete {

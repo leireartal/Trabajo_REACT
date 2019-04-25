@@ -43,11 +43,12 @@ class ListadoPedidos extends Component {
     }
     expand = (id) => {
       
-       // let info = <div id="infoadicional" >Hola</div>;
-        console.log("me estoy ejecutando");
-        //console.log(this.props.history);
-       
-        this.props.history.push( '/verlistadopedidos/' + id );
+      
+        // this.props.history.push( '/verlistadopedidos/' + id );
+        this.props.history.push({
+            pathname: '/verlistadopedidos/' + id,
+            state: this.state.pedidos
+          })
        
        
 
@@ -85,6 +86,7 @@ class ListadoPedidos extends Component {
         return (
             <div className="ListadoPedidos">
            {pedidos}
+           
         <div className="container">
        
         <Route path={this.props.match.url + '/:id'} exact component={FullPost} />

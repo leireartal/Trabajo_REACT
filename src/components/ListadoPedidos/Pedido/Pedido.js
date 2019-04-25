@@ -55,6 +55,7 @@ class Pedido extends Component {
                  </div>
                 <p class="mb-1">CLIENTE: {this.props.nombre} {this.props.apellido}</p>
                 <small>Total: {this.props.tick.importe}</small>
+              
         </div>
            {/* -----------------------------------Listado--------------------------------------*/}
         </div>
