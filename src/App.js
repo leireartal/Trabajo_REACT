@@ -7,6 +7,7 @@ import FullPost from './components/FullPost/FullPost';
 import DetallePedido from './components/DetallePedido/DetallePedido';
 import Formulario from './components/Formulario/Formulario';
 import Agradecimiento from './components/Agradecimiento/Agradecimiento';
+import ConfirmacionBorrado from './components/ConfirmacionBorrado/ConfirmacionBorrado';
 import ListadoPedidos from './components/ListadoPedidos/ListadoPedidos';
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
                     <Route path="/agradecimiento" exact component={Agradecimiento} />
                     <Route path="/verlistadopedidos"  component={ListadoPedidos} />
                     <Route path="/verlistadopedidos/"  component={FullPost} />
+                    <Route path="/borrarpedidos"  component={ConfirmacionBorrado} />
                     {/* <Redirect from="/" to="/posts" /> */}
                   
                     

@@ -11,7 +11,9 @@ class ListadoPedidos extends Component {
     state = {
         pedidos: [],
         error: false,
-        totalPedido: 0
+        totalPedido: 0,
+        dibujar:false
+
     }
     
     
@@ -49,7 +51,7 @@ class ListadoPedidos extends Component {
             pathname: '/verlistadopedidos/' + id,
             state: this.state.pedidos
           })
-       
+      
        
 
     //--------------------------------------------
@@ -57,12 +59,28 @@ class ListadoPedidos extends Component {
       
        //--------------------------------------
      }
+     borrar = (id) => {
+      
+        
+        // axios.delete('/Pedidos/' + id+'.json')
+        // .then(response => {
+        //     this.setState({dibujar: true});
+        // });
+        // this.setState({dibujar: true});
+        this.props.history.push({
+            pathname: '/borrarpedidos',
+            state: id
+          })
+        // alert(this.state.dibujar);
+     }
 
     render () {
         let urlstr = this.props.match.url + '/:id';
         console.log( urlstr);
           {/* -----------------------------------Listado--------------------------------------*/}
-        let pedidos = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
+        let pedidos = null;
+        let cuadro = <h1></h1>;
+        
         if (!this.state.error) {
             pedidos = this.state.pedidos.map(pedido => {
                 return <Pedido 
@@ -77,15 +95,23 @@ class ListadoPedidos extends Component {
                     nombre={pedido.nombre}
                     tick={pedido.tick}
                     expandinfo={() => this.expand(pedido.idb)}
+                    borrarpedido={() => this.borrar(pedido.idb)}
                     // addone={() => this.addOne(post.idb)} />;
                     />;
                   
             });
         }
-
+      
+        if(pedidos.length===0){
+            pedidos = <img id="carrovacio" src="https://firebasestorage.googleapis.com/v0/b/trabajofinal-20967.appspot.com/o/shopping%20carro.jpg?alt=media&token=fd164d49-54b1-4fe6-98c2-8a456d81ab93" className="media-object" alt="Responsive image"></img>;
+            
+        
+    }
         return (
             <div className="ListadoPedidos">
            {pedidos}
+          
+           
            
         <div className="container">
        

@@ -43,7 +43,7 @@ class Pedido extends Component {
 
     render () {
         return (
-        <div className="Pedido" onClick={this.props.expandinfo}>
+        <div className="Pedido" >
            
         <div className="container">
           {/* -----------------------------------Listado--------------------------------------*/}
@@ -55,6 +55,35 @@ class Pedido extends Component {
                  </div>
                 <p class="mb-1">CLIENTE: {this.props.nombre} {this.props.apellido}</p>
                 <small>Total: {this.props.tick.importe}</small>
+                <p>
+                <small>
+                
+                <NavLink
+                                className="text-success"
+                                onClick={this.props.expandinfo}
+                                to={{
+                                    pathname:'/verlistadopedidos/' + this.props.idb,
+                                    state: this.props
+                                            
+                                }}
+                                // exact
+                                // activeClassName="text-muted"
+                               >Ver pedido</NavLink> </small> 
+                                <small><NavLink
+                                className="text-danger"
+                                onClick={this.props.borrarpedido}
+                                to={{
+                                    pathname: '/borrarpedidos',
+                                     state: this.props
+                                            
+                                     
+                                }}
+                                exact
+                                activeClassName="text-muted"
+                               >Borrar pedido</NavLink>
+                </small>
+                </p>
+                
               
         </div>
            {/* -----------------------------------Listado--------------------------------------*/}

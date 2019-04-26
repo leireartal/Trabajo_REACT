@@ -1,21 +1,12 @@
-infoadicional{
-
-    margin-top: 50%;
-}
-#carrovacio{
-
-    width: 100%;
-    height: 100%;
-}
-/* .Agradecimiento {
+.NewPost {
     width: 80%;
-    height:80%;
-    margin-top:10%;
-    
-    
-} */
+    margin: 20px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    text-align: center;
+}
 
-/*.NewPost label {
+.NewPost label {
     display: block;
     margin: 10px auto;
     text-align: center;
@@ -48,4 +39,4 @@ infoadicional{
 .NewPost button:active {
     color: white;
     background-color: #fa923f;
-} */
+}
