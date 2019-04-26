@@ -80,8 +80,20 @@ class Pedido extends Component {
                                 }}
                                 exact
                                 activeClassName="text-muted"
-                               >Borrar pedido</NavLink>
-                </small>
+                               >Borrar pedido</NavLink> </small>
+                               <small> <NavLink
+                                className="text-info"
+                                onClick={this.props.cargarpedido}
+                                to={{
+                                    pathname: '/modifiedposts',
+                                     state: this.props
+                                            
+                                     
+                                }}
+                                exact
+                                activeClassName="text-muted"
+                               >Cargar Pedido</NavLink></small>
+               
                 </p>
                 
               

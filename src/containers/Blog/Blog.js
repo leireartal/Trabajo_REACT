@@ -16,11 +16,20 @@ class Blog extends Component {
     }
 
     componentDidMount () {
+    
       
-        axios.get( '/Productos.json' )
+      
+        
+               
+               // posts = posts.slice(0, 4);-------------------------------
+               let cargado = this.props.location.state;
+               let posts = [];
+               if(cargado==null){
+                console.log("vENGO DE POSTS");
+                axios.get( '/Productos.json' )
             .then( response => {
               //  console.log( response.error );
-                let posts = [];
+                
                
                 for (let key in response.data) {
                   
@@ -29,20 +38,33 @@ class Blog extends Component {
                         idb: key,
                         totalProducto: 0
                     });
+                    this.setState({posts: posts});
                 }
-               
-               // posts = posts.slice(0, 4);
-                
-             
-                this.setState({posts: posts});
-               // console.log(posts);
-                
             } )
             .catch(error => {
                 // console.log(error);
                 this.setState({error: true});
                
             });
+               
+                 }else{
+                 console.log("Vengo de modified posts con un pedido cargado");
+                 let compra = cargado.prods;
+                 for(let i = 0; i < compra.length; i++){
+                        if(compra[i].idb==cargado.identidad){
+                            this.setState({posts: compra[i].tick.compra});
+                        }
+                 }
+                //  this.setState({posts: compra});
+                
+                 
+                 }
+                 //-----------------------------------------------------------------
+             
+                // this.setState({posts: posts});
+              
+                
+          
     }
 
     postSelectedHandler = (id) => {
@@ -152,7 +174,7 @@ class Blog extends Component {
             <div>
                  <div className="row" >
                     <div class="col-sm-12">
-                        <h1 id="tienda">TIENDA</h1>
+                        <h1 id="tienda">CARRITO</h1>
                     </div>
                  </div>
                     {/* Boton----------------------------- */}
@@ -179,35 +201,38 @@ class Blog extends Component {
                 
                     <div className="col-sm-6">
                         <div id="cuadrogris" className="jumbotron">
-                        <h1 className="display-4">CARRITO</h1>
+                        <h1 className="display-4">DETALLE</h1>
                         {/* <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> */}
                         <hr className="my-4"></hr>
                         {/* <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> */}
                         {/* --------------Boton precio---------------------------------------------------- */}
-                        <div class="row no-gutters">
+                        <div class="row">
                         
-                        <div class="col-md-12">
-                        <div className="card border-dark mb-3" >
+                        <div class="col-sm-12">
+                        <div id="cu" className="card border-dark md-12" >
                        
                             <div id="botonTotalPedido" className="card-header">
-                                Total del pedido
+                                TOTAL DEL PEDIDO
                             </div>
                             <ul className="list-group list-group-flush">
                                 <li className="list-group-item">{strTotalCompra} </li>
                             </ul>
                         </div>
                         </div>
-                        {/* <div id="carritopequeño" class="col-md-3" style={Imgstyle}>
-                            <img src="https://firebasestorage.googleapis.com/v0/b/trabajofinal-20967.appspot.com/o/carrito.jpg?alt=media&token=1827eb89-12a1-4727-b290-9372df999bea"  ></img>
-                       </div> */}
-                        </div>
-                        
-                      
-                        {/* ------------------------------------------------------------------------------ */}
-                   
-
-                        {/* <a className="btn btn-primary btn-lg" href="#" role="button">Realizar pedido</a> */}
-                       <NavLink
+                        <div class="row">
+                        <div class="col-sm-6">
+                        <NavLink
+                                id="botonpedido"
+                                className="btn btn-info"
+                                to={{
+                                    pathname: "/verlistadopedidos",
+                                    
+                                }}
+                                exact
+                                >Ver Pedidos</NavLink></div>
+                                 <div class="col-sm-6">
+                                    <NavLink
+                                    id="realizar"
                                 className="btn btn-danger"
                                 to={{
                                     pathname: "/detallePedido",
@@ -219,10 +244,23 @@ class Blog extends Component {
                                 activeClassName="btn btn-danger"
                                 activeStyle={{
                                     // color: '#fa923f', 
-                                }}>Realizar Pedido</NavLink>
+                                }}>Realizar Pedido</NavLink></div>
+                            
                    
                    
                     </div>
+                                </div>
+                        {/* <div id="carritopequeño" class="col-md-3" style={Imgstyle}>
+                            <img src="https://firebasestorage.googleapis.com/v0/b/trabajofinal-20967.appspot.com/o/carrito.jpg?alt=media&token=1827eb89-12a1-4727-b290-9372df999bea"  ></img>
+                       </div> */}
+                        </div>
+                        
+                      
+                        {/* ------------------------------------------------------------------------------ */}
+                   
+
+                        {/* <a className="btn btn-primary btn-lg" href="#" role="button">Realizar pedido</a> */}
+                   
                     
                     </div>
                    

@@ -73,6 +73,25 @@ class ListadoPedidos extends Component {
           })
         // alert(this.state.dibujar);
      }
+     cargar = (id) => {
+      
+        
+        // axios.delete('/Pedidos/' + id+'.json')
+        // .then(response => {
+        //     this.setState({dibujar: true});
+        // });
+        // this.setState({dibujar: true});
+
+       
+        this.props.history.push({
+            pathname: '/modifiedposts',
+            // state: this.state.pedidos
+            state: { prods: this.state.pedidos,
+                identidad: id
+        }
+          })
+        // alert(this.state.dibujar);
+     }
 
     render () {
         let urlstr = this.props.match.url + '/:id';
@@ -96,6 +115,7 @@ class ListadoPedidos extends Component {
                     tick={pedido.tick}
                     expandinfo={() => this.expand(pedido.idb)}
                     borrarpedido={() => this.borrar(pedido.idb)}
+                    cargarpedido={() => this.cargar(pedido.idb)}
                     // addone={() => this.addOne(post.idb)} />;
                     />;
                   

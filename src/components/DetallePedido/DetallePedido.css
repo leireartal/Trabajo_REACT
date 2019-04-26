@@ -24,6 +24,20 @@
     
     
 }
+#volver{
+
+    background-color: rgb(182, 18, 18);
+    color: rgb(233, 236, 239);
+    
+}
+#continuar{
+
+    background-color: rgb(182, 18, 18);
+    color: rgb(233, 236, 239);
+    
+}
+    
+   
 /* .FullPost {
     width: 80%;
     margin: 20px auto;

@@ -26,6 +26,8 @@ class App extends Component {
                     <Route path="/verlistadopedidos"  component={ListadoPedidos} />
                     <Route path="/verlistadopedidos/"  component={FullPost} />
                     <Route path="/borrarpedidos"  component={ConfirmacionBorrado} />
+                    <Route path="/modifiedposts"  component={Blog} />
+                    
                     {/* <Redirect from="/" to="/posts" /> */}
                   
                     

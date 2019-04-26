@@ -115,28 +115,27 @@ class DetallePedido extends Component {
     </div>  
     </div>
 <div className="row" >
+<div className="col-sm-6">
    
-    <nav className='navbar navbar-dark bg-dark'>
 
              <NavLink 
-                    // className="btn btn-secondary"
+                    id="volver"
+                     className="btn btn-light"
                     to="/posts/"
                     exact
-                    activeClassName="my-active"
+                    activeClassName="btn btn-success"
                     alignm="left"
-                    activeStyle={{
-                       backgroundColor:'rgb(182, 18, 18)',
-                       textAlign:'left',
-                       alignm:'left'
+                   >Volver a la tienda</NavLink>
+        
+    
 
-                    }}>Volver a la tienda</NavLink>
-        </nav>
     </div>
-    <div className="row" >
-        <nav className='navbar navbar-dark bg-dark'>
+    <div className="col-sm-6">
+        
             
            <NavLink
-                    // className="btn btn-secondary"
+                     id="continuar"
+                    className="btn btn-ligth"
                     alignm="right"
                     to={{
                         pathname: "/Formulario",
@@ -145,14 +144,12 @@ class DetallePedido extends Component {
                         }
                     }}
                     exact
-                    activeClassName="my-active"
-                    activeStyle={{
-                        color: '#fa923f',
-                        
-                    }}>Continuar</NavLink>
+                    
+                   >Continuar</NavLink>
            
-    </nav>
+   
     
+</div>
 </div>
 </div>
         );
