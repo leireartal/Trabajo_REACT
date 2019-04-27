@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Blog from './containers/Blog/Blog';
 import { Route, NavLink, Switch,Redirect } from 'react-router-dom';
-import NewPost from './components/NewPost/NewPost';
 import FullPost from './components/FullPost/FullPost';
 import DetallePedido from './components/DetallePedido/DetallePedido';
 import Formulario from './components/Formulario/Formulario';
 import Agradecimiento from './components/Agradecimiento/Agradecimiento';
 import ConfirmacionBorrado from './components/ConfirmacionBorrado/ConfirmacionBorrado';
 import ListadoPedidos from './components/ListadoPedidos/ListadoPedidos';
+import Login from './components/Login/Login';
+import Admin from './components/Admin/Admin';
 class App extends Component {
   render() {
     return (
@@ -27,6 +28,8 @@ class App extends Component {
                     <Route path="/verlistadopedidos/"  component={FullPost} />
                     <Route path="/borrarpedidos"  component={ConfirmacionBorrado} />
                     <Route path="/modifiedposts"  component={Blog} />
+                    <Route path="/login"  component={Login} />
+                    <Route path="/admin"  component={Admin} />
                     
                     {/* <Redirect from="/" to="/posts" /> */}
                   

@@ -4,7 +4,7 @@ import axios from '../../axios';
 import { Route, NavLink, Switch } from 'react-router-dom';
 import Post from '../../components/Post/Post';
 import FullPost from '../../components/FullPost/FullPost';
-import NewPost from '../../components/NewPost/NewPost';
+
 import './Blog.css';
 
 class Blog extends Component {
@@ -24,6 +24,7 @@ class Blog extends Component {
                // posts = posts.slice(0, 4);-------------------------------
                let cargado = this.props.location.state;
                let posts = [];
+              
                if(cargado==null){
                 console.log("vENGO DE POSTS");
                 axios.get( '/Productos.json' )
@@ -48,6 +49,11 @@ class Blog extends Component {
             });
                
                  }else{
+                    if(!cargado.identidad){
+                        console.log("Vengo de detalle pedido");
+                        let comp = cargado.prods;
+                        this.setState({posts: comp});
+                    }else{
                  console.log("Vengo de modified posts con un pedido cargado");
                  let compra = cargado.prods;
                  for(let i = 0; i < compra.length; i++){
@@ -59,6 +65,7 @@ class Blog extends Component {
                 
                  
                  }
+                }
                  //-----------------------------------------------------------------
              
                 // this.setState({posts: posts});
@@ -173,9 +180,22 @@ class Blog extends Component {
             <div class="container">
             <div>
                  <div className="row" >
-                    <div class="col-sm-12">
+                 <div class="col-sm-2">
+                        <NavLink
+                                    id="admin"
+                                    className="btn btn-info"
+                                    to={{
+                                        pathname: "/login",
+                                       
+                                    
+                                    }}
+                                    exact
+                                    >Admin</NavLink>
+                    </div>
+                    <div class="col-sm-10">
                         <h1 id="tienda">CARRITO</h1>
                     </div>
+                 
                  </div>
                     {/* Boton----------------------------- */}
                 <div className="row" >

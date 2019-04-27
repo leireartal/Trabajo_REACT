@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import './bootstrap.min.css';
 import './Formulario.css';
 import axios from '../../axios';
+
 
 class Formulario extends Component {
     state = {
@@ -23,8 +24,11 @@ class Formulario extends Component {
        // preciototal:'',
     }
 
-    // componentWillUpdate () {
-        
+    // componentWillMount () {
+    //   if(this.props.location==null){
+    //     console.log("No ha pedido nada");
+    //     <Route path="/modifiedposts"  component={Blog} />
+    //   }
 
     // }
 

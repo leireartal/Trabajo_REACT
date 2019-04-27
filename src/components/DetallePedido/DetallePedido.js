@@ -121,7 +121,13 @@ class DetallePedido extends Component {
              <NavLink 
                     id="volver"
                      className="btn btn-light"
-                    to="/posts/"
+                    // to="/posts/"
+                    to={{
+                        pathname: "/posts/",
+                        state: { prods: this.props.location.state.prods[0],
+                            identidad:false
+                        }
+                    }}
                     exact
                     activeClassName="btn btn-success"
                     alignm="left"
